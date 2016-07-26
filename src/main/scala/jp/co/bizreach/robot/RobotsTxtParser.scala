@@ -7,11 +7,10 @@ import org.apache.commons.io.input.BOMInputStream
 
 import scala.annotation.tailrec
 import scala.io.Source
+import scala.util.Try
 import scala.util.matching.Regex
 
 import com.softwaremill.quicklens._
-import scalaz._
-import Scalaz._
 
 /**
  * The object of parsing the robots.txt.
@@ -57,7 +56,7 @@ object RobotsTxtParser {
               isGroupRecord = true
             )
           case CrawlDelay =>
-            val delay = Seq(v.parseInt.getOrElse(0), 0).max
+            val delay = Seq(Try(v.toInt).getOrElse(0), 0).max
             readLine0(
               lines         = lines,
               robots        = robots.update(currentPath: _*)(_.modify(_.crawlDelay).setTo(delay)),

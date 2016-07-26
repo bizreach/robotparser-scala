@@ -1,11 +1,11 @@
 name := "robotparser-scala"
 organization := "jp.co.bizreach"
-version := "0.0.1"
-scalaVersion := "2.11.7"
+version := "0.0.2-SNAPSHOT"
+scalaVersion := "2.11.8"
 libraryDependencies ++= Seq(
-  "org.scalaz"                 %% "scalaz-core" % "7.1.3",
-  "com.softwaremill.quicklens" %% "quicklens"   % "1.4.0",
-  "commons-io"                 %  "commons-io"  % "2.4"
+  "org.scala-lang.modules"     %% "scala-xml"   % "1.0.5",
+  "com.softwaremill.quicklens" %% "quicklens"   % "1.4.7",
+  "commons-io"                 %  "commons-io"  % "2.5"
 )
 publishMavenStyle := true
 publishTo <<= version { (v: String) =>
