@@ -1,17 +1,17 @@
 name := "robotparser-scala"
 organization := "jp.co.bizreach"
 version := "0.0.4-SNAPSHOT"
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.4"
 libraryDependencies ++= Seq(
   "org.scala-lang.modules"     %% "scala-xml"   % "1.0.6",
-  "com.softwaremill.quicklens" %% "quicklens"   % "1.4.8",
-  "commons-io"                 %  "commons-io"  % "2.5"
+  "com.softwaremill.quicklens" %% "quicklens"   % "1.4.11",
+  "commons-io"                 %  "commons-io"  % "2.6"
 )
 publishMavenStyle := true
-publishTo <<= version { (v: String) =>
+publishTo := {
   val nexus = "https://oss.sonatype.org/"
-  if (v.trim.endsWith("SNAPSHOT")) Some("snapshots" at nexus + "content/repositories/snapshots")
-  else                             Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+  if (version.value.endsWith("SNAPSHOT")) Some("snapshots" at nexus + "content/repositories/snapshots")
+  else                                    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
 }
 scalacOptions := Seq("-deprecation")
 publishArtifact in Test := false
