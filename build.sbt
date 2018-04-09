@@ -1,9 +1,9 @@
 name := "robotparser-scala"
 organization := "jp.co.bizreach"
 version := "0.0.4-SNAPSHOT"
-scalaVersion := "2.12.4"
+scalaVersion := "2.12.5"
 libraryDependencies ++= Seq(
-  "org.scala-lang.modules"     %% "scala-xml"   % "1.0.6",
+  "org.scala-lang.modules"     %% "scala-xml"   % "1.1.0",
   "com.softwaremill.quicklens" %% "quicklens"   % "1.4.11",
   "commons-io"                 %  "commons-io"  % "2.6"
 )
