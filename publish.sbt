@@ -1,3 +1,5 @@
+import ReleaseTransformations._
+
 pomIncludeRepository := { _ => false }
 publishMavenStyle := true
 publishTo := sonatypePublishTo.value
@@ -14,7 +16,6 @@ developers := List(
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
 releaseCrossBuild := true
 
-import ReleaseTransformations._
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
   inquireVersions,
