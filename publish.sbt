@@ -14,6 +14,7 @@ developers := List(
 )
 
 releasePublishArtifactsAction := PgpKeys.publishSigned.value
+releaseTagName := (version in ThisBuild).value
 releaseCrossBuild := true
 
 releaseProcess := Seq[ReleaseStep](
