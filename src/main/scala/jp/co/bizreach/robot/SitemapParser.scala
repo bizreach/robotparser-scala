@@ -18,11 +18,15 @@ object SitemapParser {
    * @return the contents of the parsed sitemap file
    */
   def parse(stream: InputStream, charsetName: String = "UTF-8"): Sitemap = {
-    val bis = new BufferedInputStream(stream)
-    bis.mark(512)
+    val in = new BufferedInputStream(stream)
+    in.mark(512)
 
-    val load = (in: InputStream) =>
-      Source.fromInputStream(bis, charsetName).mkString match {
+    val bytes = new Array[Byte](512)
+    in.read(bytes, 0, 512)
+    val head = new String(bytes, charsetName)
+    in.reset()
+
+    head match {
       // XML Sitemap
       case line if line contains "<urlset" =>
         Urlset(
@@ -46,7 +50,7 @@ object SitemapParser {
           }
         )
       // Text Sitemap
-      case line if line matches "^https?://.*" =>
+      case line if line.startsWith("http") || line.startsWith("https") =>
         Urlset(
           Source.fromInputStream(in, charsetName).getLines()
             .withFilter(_ matches "^https?://.*")
@@ -56,9 +60,6 @@ object SitemapParser {
       // gz
       case _ => parse(new GZIPInputStream(in), charsetName)
     }
-
-    bis.reset()
-    load(bis)
   }
 
   implicit class RichNodeSeq(nodeSeq: NodeSeq) {
