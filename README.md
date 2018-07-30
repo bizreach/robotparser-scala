@@ -1,4 +1,4 @@
-# robotparser-scala
+# robotparser-scala [![Build Status](https://secure.travis-ci.org/bizreach/robotparser-scala.png?branch=master)](http://travis-ci.org/bizreach/robotparser-scala)
 robotparser-scala implements a parser for the `robots.txt` file format in Scala.
 
 ## Setup
