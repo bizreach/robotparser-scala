@@ -6,7 +6,7 @@ robotparser-scala implements a parser for the `robots.txt` file format in Scala.
 Add robotparser-scala as a dependency in `build.sbt`:
 
 ```scala
-libraryDependencies += "jp.co.bizreach" %% "robotparser-scala" % "0.0.4"
+libraryDependencies += "jp.co.bizreach" %% "robotparser-scala" % "0.0.5"
 ```
 
 ## Usage
