@@ -1,7 +1,7 @@
 name := "robotparser-scala"
 organization := "jp.co.bizreach"
 scalaVersion := "2.12.8"
-crossScalaVersions := Seq(scalaVersion.value, "2.13.0")
+crossScalaVersions := Seq(scalaVersion.value, "2.13.6")
 
 libraryDependencies ++= Seq(
   "org.scala-lang.modules"     %% "scala-xml"   % "1.2.0",
