@@ -9,4 +9,4 @@ env:
     - CI_HOME=`pwd`
 
 script:
-  - cd $CI_HOME && sbt test
+  - cd $CI_HOME && sbt ++test
